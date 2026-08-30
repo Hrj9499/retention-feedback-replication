@@ -1180,8 +1180,8 @@ j\in\arg\max_{i=1,\ldots,L}\;
 The first factor asks whether product \(i\)'s box membership is still
 contested. The second asks how much one more answer can still teach under
 the chosen format. In the numerical policies, we estimate the current cutoff \(\hat
-w_{(K)}\) and score each product by a smooth kernel of its distance to
-that cutoff. An item's score also fades as it accumulates answers,
+w_{(K)}\) and give each product a proximity score that is highest at the
+cutoff and fades with distance. An item's score also fades as it accumulates answers,
 because each additional answer about the same item teaches less than the
 one before. We call the result the guarded cutoff rule. It is the operating policy the rest of the paper
 recommends and tests, and it needs no separate calibration of the
@@ -1344,23 +1344,23 @@ response counts, and the estimated marginal-value rule implements the
 priority formula of Proposition~\ref{prop:local-marginal} directly.
 
 \paragraph{Implementation.}
-Let \(\hat c=\hat w_{(K)}\) be the current estimated cutoff and let the kernel score of item \(i\) be
+The functional forms are deliberately generic, a bell curve for
+closeness to the cutoff, a floor so that no item is ever ruled out, and
+answer counts for diminishing returns; the constants are round
+defaults. Let \(\hat c=\hat w_{(K)}\) be the current estimated cutoff and let the proximity score of item \(i\) be
 \[
 k_i \;=\; 0.10+0.90\exp\!\big(-\big((\hat w_i-\hat c)/h\big)^2\big),
 \qquad
 h=\max\{\mathrm{med}(g_K),\,0.10\,\mathrm{sd}(\hat{\w}),\,0.08\},
 \]
-where \(g_K\) holds the two order-statistic gaps adjacent to the cutoff, \(\hat w_{(K-1)}-\hat w_{(K)}\) and \(\hat w_{(K)}-\hat w_{(K+1)}\), and \(\mathrm{sd}(\hat{\w})\) is the cross-sectional standard deviation of the current means. The guarded cutoff rule queries \(\arg\max_i k_i/(1+0.10\,N_i)\), where \(N_i\) is the number of answers item \(i\) has received. We call the division by \(1+0.10\,N_i\) the count damping. Its job is to
-keep the rule from spending the whole budget on the same few borderline
-items. Every answer an item receives shrinks its score a little, so an
-item that has been queried ten times keeps only half its kernel score
-and steps aside for its neighbors. Uncertainty-only targeting queries \(\arg\max_i u_i\), where \(u_i=\sum_j A_{ij}(\N)^2/\big(A_{ii}(\N)+1/\kappa_i\big)\) is the total posterior-variance reduction across the catalog from one more answer on item \(i\). The combined rule multiplies \(k_i\) by \(0.15+0.85\,u_i/\max_j u_j\) and divides by \(1+0.05\,N_i\). The estimated marginal-value score is \(\kappa_i\sum_j k^0_j\,A_{ij}(\N)^2\), where \(k^0_j\) is the kernel score with the floor removed; under an independent prior this reduces to the product form of the proposition. All constants were chosen once during development and held fixed across every experiment, both priors, and all budgets. Proposition~\ref{prop:local-marginal} prices an answer as cutoff
+where \(g_K\) holds the two order-statistic gaps adjacent to the cutoff, \(\hat w_{(K-1)}-\hat w_{(K)}\) and \(\hat w_{(K)}-\hat w_{(K+1)}\), and \(\mathrm{sd}(\hat{\w})\) is the cross-sectional standard deviation of the current means; the exponential is a Gaussian kernel with an adaptive bandwidth \(h\). The guarded cutoff rule queries \(\arg\max_i k_i/(1+0.10\,N_i)\), where \(N_i\) is the number of answers item \(i\) has received. We call the division by \(1+0.10\,N_i\) the count damping. Its job is to keep the rule from spending the whole budget on the same few borderline items. Every answer an item receives shrinks its score a little, so an item that has been queried ten times keeps only half its proximity score and steps aside for its neighbors. All constants were chosen once during development and held fixed across every experiment, both priors, and all budgets. Proposition~\ref{prop:local-marginal} prices an answer as cutoff
 relevance times how much there is still to learn about the item. The
 count damping is a shortcut for that second part. The more often an item
 has been asked about, the less one more answer can teach, so the raw
 answer count already tracks what is left to learn, with nothing to
-estimate. The combined and marginal-value rules estimate the same
-quantity from the posterior instead.
+estimate. The combined and marginal-value rules estimate the same quantity from
+the posterior instead; their exact scores are in
+Appendix~\ref{app:refinement-tables}.
 
 The experiment uses a common warm start of five responses per item and
 \(100\) shared synthetic worlds, each a fresh draw of true item values
@@ -1427,8 +1427,8 @@ An exact myopic benchmark, a rule that maximizes the expected gain from
 just the next answer, provides a useful comparison
 (Appendix~\ref{app:greedy-optimal}). Under the independent prior, that
 expected gain has a closed form, a knowledge-gradient-style
-computation, so the myopic one-answer rule can be run exactly, with no
-kernel and no estimation. The exact rule stalls. Its gap is flat at
+computation, so the myopic one-answer rule can be run exactly, with no proximity
+score and no estimation. The exact rule stalls. Its gap is flat at
 \(0.097\) across all three budgets, while on the same matched worlds
 the guarded rule falls from \(0.073\) to \(0.006\), a seventeenfold
 difference at the largest budget. The failure is short-sightedness. An
@@ -2240,6 +2240,20 @@ truth is generated from an AR(1) prior with \(\rho=0.6\), and
 outcomes are next-box value gaps. Table~\ref{tab:alloc-win-rates}
 additionally reports the independent prior, matching the main
 allocation table.
+
+\paragraph{Benchmark implementations.}
+Uncertainty-only targeting queries \(\arg\max_i u_i\), where
+\(u_i=\sum_j A_{ij}(\N)^2/\big(A_{ii}(\N)+1/\kappa_i\big)\) is
+the total posterior-variance reduction across the catalog from one more
+answer on item \(i\). The combined cutoff \(\times\) uncertainty
+rule multiplies the proximity score \(k_i\) of
+Section~\ref{subsec:design-allocation} by
+\(0.15+0.85\,u_i/\max_j u_j\) and divides by \(1+0.05\,N_i\).
+The estimated marginal-value score is
+\(\kappa_i\sum_j k^0_j\,A_{ij}(\N)^2\), where \(k^0_j\) is the
+proximity score with the floor removed; under an independent prior this
+reduces to the product form of
+Proposition~\ref{prop:local-marginal}.
 
 Table~\ref{tab:alloc-win-rates} extends Table~\ref{tab:alloc-efficacy}
 from mean gaps to world-level win rates. The guarded cutoff rule
