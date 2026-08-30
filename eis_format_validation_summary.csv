@@ -1,0 +1,4 @@
+scenario,eis_selected_format,hit_rate,within_5pct_of_best,mean_regret_pct,mean_spearman_rho
+Low burden sensitivity,"5-point, Q=7",0.915,1.0,0.03528778556437472,0.9765
+Moderate burden sensitivity,"5-point, Q=5",0.825,1.0,0.0474116570137037,0.9680000000000001
+High burden sensitivity,"5-point, Q=3",0.8,1.0,0.06402211961185156,0.9095

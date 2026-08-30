@@ -1,0 +1,7 @@
+prior,S,mad,max_ad
+independent,2,0.038,0.091
+independent,3,0.023,0.064
+independent,5,0.041,0.106
+ar1_rho_0_6,2,0.04,0.092
+ar1_rho_0_6,3,0.024,0.064
+ar1_rho_0_6,5,0.044,0.107

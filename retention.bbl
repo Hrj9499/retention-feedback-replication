@@ -1,0 +1,529 @@
+\begin{thebibliography}{73}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Agresti(2010)]{Agresti}
+Alan Agresti.
+\newblock \emph{Analysis of Ordinal Categorical Data}.
+\newblock Wiley, Hoboken, NJ, 2 edition, 2010.
+
+\bibitem[Atkinson et~al.(2007)Atkinson, Donev, and
+  Tobias]{AtkinsonDonevTobias2007}
+Anthony~C. Atkinson, Alexander~N. Donev, and Randall~D. Tobias.
+\newblock \emph{Optimum Experimental Designs, with SAS}.
+\newblock Oxford University Press, Oxford, 2007.
+\newblock ISBN 9780199296606.
+
+\bibitem[Bliemer and Rose(2011)]{BliemerRose2011}
+Michiel C.~J. Bliemer and John~M. Rose.
+\newblock Experimental design influences on stated choice outputs: An empirical
+  study in air travel choice.
+\newblock \emph{Transportation Research Part A: Policy and Practice},
+  45\penalty0 (1):\penalty0 63--79, 2011.
+\newblock \doi{10.1016/j.tra.2010.09.003}.
+
+\bibitem[Bradley and Terry(1952)]{BradleyTerry}
+Ralph~A. Bradley and Milton~E. Terry.
+\newblock Rank analysis of incomplete block designs: I. the method of paired
+  comparisons.
+\newblock \emph{Biometrika}, 39\penalty0 (3/4):\penalty0 324--345, 1952.
+\newblock \doi{10.1093/biomet/39.3-4.324}.
+
+\bibitem[Callegaro et~al.(2015)Callegaro, Lozar~Manfreda, and
+  Vehovar]{Callegaro2015}
+Mario Callegaro, Katja Lozar~Manfreda, and Vasja Vehovar.
+\newblock \emph{Web Survey Methodology}.
+\newblock SAGE Publications, London, 2015.
+\newblock ISBN 978-1-4462-5710-8.
+
+\bibitem[Caro and Gallien(2007)]{CaroGallien2007}
+Felipe Caro and J{\'e}r{\'e}mie Gallien.
+\newblock Dynamic assortment with demand learning for seasonal consumer goods.
+\newblock \emph{Management Science}, 53\penalty0 (2):\penalty0 276--292, 2007.
+
+\bibitem[Caron and Doucet(2012)]{CaronDoucet}
+Fran\c{c}ois Caron and Arnaud Doucet.
+\newblock Efficient bayesian inference for generalized bradley--terry models.
+\newblock \emph{Journal of Computational and Graphical Statistics}, 21\penalty0
+  (1), 2012.
+
+\bibitem[Chaloner and Verdinelli(1995)]{ChalonerVerdinelli1995}
+Kathryn Chaloner and Isabella Verdinelli.
+\newblock Bayesian experimental design: A review.
+\newblock \emph{Statistical Science}, 10\penalty0 (3):\penalty0 273--304, 1995.
+\newblock \doi{10.1214/ss/1177009939}.
+\newblock URL
+  \url{https://projecteuclid.org/journals/statistical-science/volume-10/issue-3/Bayesian-Experimental-Design-A-Review/10.1214/ss/1177009939.full}.
+
+\bibitem[Chen et~al.(2000)Chen, Lin, Y{\"u}cesan, and
+  Chick]{ChenLinYucesanChick2000}
+Chun-Hung Chen, Jianwu Lin, Enver Y{\"u}cesan, and Stephen~E. Chick.
+\newblock Simulation budget allocation for further enhancing the efficiency of
+  ordinal optimization.
+\newblock \emph{Discrete Event Dynamic Systems}, 10\penalty0 (3):\penalty0
+  251--270, 2000.
+
+\bibitem[Chen et~al.(2008)Chen, He, Fu, and Lee]{ChenHeFuLee2008}
+Chun-Hung Chen, Donghai He, Michael~C. Fu, and Loo~Hay Lee.
+\newblock Efficient simulation budget allocation for selecting an optimal
+  subset.
+\newblock \emph{INFORMS Journal on Computing}, 20\penalty0 (4):\penalty0
+  579--595, 2008.
+
+\bibitem[Chen et~al.(2014)Chen, Lin, King, Lyu, and Chen]{ChenEtAlCPE}
+Shouyuan Chen, Tian Lin, Irwin King, Michael~R. Lyu, and Wei Chen.
+\newblock Combinatorial pure exploration of multi-armed bandits.
+\newblock In \emph{Advances in Neural Information Processing Systems (NIPS)},
+  volume~27, pages 379--387, 2014.
+
+\bibitem[Chen et~al.(2018)Chen, Fenyo, Yang, and Zhang]{ChenEtAl2018}
+Tony Chen, Ken Fenyo, Sylvia Yang, and Jessica Zhang.
+\newblock Thinking inside the subscription box: New research on {E}-commerce
+  consumers.
+\newblock McKinsey \& Company, February 2018.
+\newblock URL
+  \url{https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/thinking-inside-the-subscription-box-new-research-on-ecommerce-consumers}.
+\newblock Accessed 2026-03-27.
+
+\bibitem[Chick and Inoue(2001)]{ChickInoue2001}
+Stephen~E. Chick and Koichiro Inoue.
+\newblock New two-stage and sequential procedures for selecting the best
+  simulated system.
+\newblock \emph{Operations Research}, 49\penalty0 (5):\penalty0 732--743, 2001.
+
+\bibitem[Chu and Ghahramani(2005)]{ChuGhahramani2005}
+Wei Chu and Zoubin Ghahramani.
+\newblock Gaussian processes for ordinal regression.
+\newblock \emph{Journal of Machine Learning Research}, 6:\penalty0 1019--1041,
+  2005.
+
+\bibitem[Contal et~al.(2014)Contal, Perchet, and Vayatis]{ContalEtAl}
+Emile Contal, Vianney Perchet, and Nicolas Vayatis.
+\newblock Gaussian process optimization with mutual information.
+\newblock In \emph{Proceedings of the 31st International Conference on Machine
+  Learning (ICML)}, volume~32 of \emph{Proceedings of Machine Learning
+  Research}, pages 253--261, 2014.
+
+\bibitem[Desautels et~al.(2014)Desautels, Krause, and Burdick]{DesautelsEtAl}
+Thomas Desautels, Andreas Krause, and Joel~W. Burdick.
+\newblock Parallelizing exploration--exploitation with gaussian process bandit
+  optimization.
+\newblock \emph{Journal of Machine Learning Research}, 15:\penalty0 3873--3923,
+  2014.
+
+\bibitem[Dillman et~al.(2014)Dillman, Smyth, and
+  Christian]{DillmanSmythChristian2014}
+Don~A. Dillman, Jolene~D. Smyth, and Leah~Melani Christian.
+\newblock \emph{Internet, Phone, Mail, and Mixed-Mode Surveys: The Tailored
+  Design Method}.
+\newblock John Wiley \& Sons, Hoboken, NJ, 4 edition, 2014.
+\newblock ISBN 978-1-118-45614-9.
+
+\bibitem[Elmachtoub and Grigas(2022)]{ElmachtoubGrigas2022}
+Adam~N. Elmachtoub and Paul Grigas.
+\newblock Smart ``predict, then optimize''.
+\newblock \emph{Management Science}, 68\penalty0 (1):\penalty0 9--26, 2022.
+\newblock \doi{10.1287/mnsc.2020.3922}.
+
+\bibitem[Fan and Yan(2010)]{FanYan2010}
+Weimiao Fan and Zheng Yan.
+\newblock Factors affecting response rates of the web survey: A systematic
+  review.
+\newblock \emph{Computers in Human Behavior}, 26\penalty0 (2):\penalty0
+  132--139, 2010.
+\newblock \doi{10.1016/j.chb.2009.10.015}.
+
+\bibitem[Frazier et~al.(2009)Frazier, Powell, and
+  Dayanik]{FrazierPowellDayanik}
+Peter~I. Frazier, Warren~B. Powell, and Savas Dayanik.
+\newblock The knowledge-gradient policy for correlated normal beliefs.
+\newblock \emph{INFORMS Journal on Computing}, 21\penalty0 (4):\penalty0
+  599--613, 2009.
+\newblock \doi{10.1287/ijoc.1080.0314}.
+
+\bibitem[Gabillon et~al.(2012)Gabillon, Ghavamzadeh, and Lazaric]{GabillonEtAl}
+Victor Gabillon, Mohammad Ghavamzadeh, and Alessandro Lazaric.
+\newblock Best arm identification: A unified approach to fixed budget and fixed
+  confidence.
+\newblock In \emph{Advances in Neural Information Processing Systems (NIPS)},
+  volume~25, pages 3212--3220, 2012.
+
+\bibitem[Galesic and Bo{\v{s}}njak(2009)]{Galesic2009}
+Mirta Galesic and Michael Bo{\v{s}}njak.
+\newblock Effects of questionnaire length on participation and indicators of
+  response quality in a web survey.
+\newblock \emph{Public Opinion Quarterly}, 73\penalty0 (2):\penalty0 349--360,
+  2009.
+\newblock \doi{10.1093/poq/nfp031}.
+\newblock URL \url{https://academic.oup.com/poq/article/73/2/349/1939196}.
+
+\bibitem[Garivier and Kaufmann(2016)]{KaufmannEtAl}
+Aur{\'e}lien Garivier and {\'E}milie Kaufmann.
+\newblock Optimal best arm identification with fixed confidence.
+\newblock In \emph{Proceedings of the 29th Conference on Learning Theory
+  (COLT)}, volume~49 of \emph{Proceedings of Machine Learning Research}, pages
+  998--1027, 2016.
+
+\bibitem[Guiver and Snelson(2009)]{GuiverSnelson}
+John Guiver and Edward Snelson.
+\newblock Bayesian inference for the plackett--luce model and its extensions.
+\newblock In \emph{Proceedings of the 26th International Conference on Machine
+  Learning (ICML)}, 2009.
+
+\bibitem[Harper and Konstan(2015)]{HarperKonstan2016}
+F.~Maxwell Harper and Joseph~A. Konstan.
+\newblock The movielens datasets: History and context.
+\newblock \emph{ACM Transactions on Interactive Intelligent Systems (TiiS)},
+  5\penalty0 (4):\penalty0 19:1--19:19, 2015.
+\newblock \doi{10.1145/2827872}.
+\newblock URL \url{https://dl.acm.org/doi/10.1145/2827872}.
+
+\bibitem[Howell et~al.(2021)Howell, Ebbes, and Liechty]{HowellEbbesLiechty2021}
+John~R. Howell, Peter Ebbes, and John~C. Liechty.
+\newblock Gremlins in the data: Identifying the information content of research
+  subjects.
+\newblock \emph{Journal of Marketing Research}, 58\penalty0 (1):\penalty0
+  74--94, 2021.
+\newblock \doi{10.1177/0022243720965930}.
+
+\bibitem[Hu et~al.(2008)Hu, Koren, and Volinsky]{HuKorenVolinsky2008}
+Yifan Hu, Yehuda Koren, and Chris Volinsky.
+\newblock Collaborative filtering for implicit feedback datasets.
+\newblock In \emph{Proceedings of the 2008 Eighth IEEE International Conference
+  on Data Mining}, pages 263--272, 2008.
+\newblock \doi{10.1109/ICDM.2008.22}.
+
+\bibitem[{Hungryroot}(2025{\natexlab{a}})]{HungryrootPersonalized2025}
+{Hungryroot}.
+\newblock How are my deliveries personalized for me?
+\newblock Help center article, April 2025{\natexlab{a}}.
+\newblock URL
+  \url{https://support.hungryroot.com/hc/en-us/articles/360012414593-How-are-my-deliveries-personalized-for-me}.
+\newblock Updated April 17, 2025. Accessed 2026-03-27.
+
+\bibitem[{Hungryroot}(2025{\natexlab{b}})]{HungryrootPreferences2025}
+{Hungryroot}.
+\newblock How do i update my dietary needs and preferences?
+\newblock Help center article, July 2025{\natexlab{b}}.
+\newblock URL
+  \url{https://support.hungryroot.com/hc/en-us/articles/360058172973-How-do-I-update-my-dietary-needs-and-preferences}.
+\newblock Updated July 14, 2025. Accessed 2026-03-27.
+
+\bibitem[Hunter(2004)]{Hunter}
+David~R. Hunter.
+\newblock {MM} algorithms for generalized bradley--terry models.
+\newblock \emph{The Annals of Statistics}, 32\penalty0 (1):\penalty0 384--406,
+  2004.
+
+\bibitem[Joachims(2002)]{Joachims2002}
+Thorsten Joachims.
+\newblock Optimizing search engines using clickthrough data.
+\newblock In \emph{Proceedings of the Eighth ACM SIGKDD International
+  Conference on Knowledge Discovery and Data Mining}, pages 133--142. ACM,
+  2002.
+\newblock \doi{10.1145/775047.775067}.
+
+\bibitem[Kalyanakrishnan and Stone(2010)]{KalyanakrishnanEtAl}
+Shivaram Kalyanakrishnan and Peter Stone.
+\newblock Efficient selection of multiple bandit arms: Theory and practice.
+\newblock In \emph{Proceedings of the 27th International Conference on Machine
+  Learning (ICML)}, pages 511--518, 2010.
+
+\bibitem[Kalyanakrishnan et~al.(2012)Kalyanakrishnan, Tewari, Auer, and
+  Stone]{KalyanakrishnanTewari}
+Shivaram Kalyanakrishnan, Ambuj Tewari, Peter Auer, and Peter Stone.
+\newblock {PAC} subset selection in stochastic multi-armed bandits.
+\newblock In \emph{Proceedings of the 29th International Conference on Machine
+  Learning (ICML)}, pages 655--662, 2012.
+
+\bibitem[Kessels et~al.(2006)Kessels, Goos, and
+  Vandebroek]{KesselsGoosVandebroek2006}
+Roselinde Kessels, Peter Goos, and Martina Vandebroek.
+\newblock A comparison of criteria to design efficient choice experiments for
+  multinomial logit models.
+\newblock \emph{Journal of Marketing Research}, 43\penalty0 (3):\penalty0
+  409--419, 2006.
+\newblock \doi{10.1509/jmkr.43.3.409}.
+
+\bibitem[Komiyama et~al.(2015)Komiyama, Honda, and Nakagawa]{KomiyamaEtAl}
+Junpei Komiyama, Junya Honda, and Hiroshi Nakagawa.
+\newblock Optimal regret analysis of thompson sampling in stochastic
+  multi-armed bandit problem with multiple plays.
+\newblock In \emph{Proceedings of the International Conference on Artificial
+  Intelligence and Statistics (AISTATS)}, volume~38 of \emph{Proceedings of
+  Machine Learning Research}, pages 1147--1155, 2015.
+
+\bibitem[Kondor and Lafferty(2002)]{KondorLafferty}
+Risi Kondor and John Lafferty.
+\newblock Diffusion kernels on graphs and other discrete input spaces.
+\newblock In \emph{Proceedings of the 19th International Conference on Machine
+  Learning (ICML)}, pages 315--322, 2002.
+
+\bibitem[Krause et~al.(2008)Krause, Singh, and Guestrin]{KrauseGuestrin}
+Andreas Krause, Ajit~P. Singh, and Carlos Guestrin.
+\newblock Near-optimal sensor placements in gaussian processes: Theory,
+  efficient algorithms and empirical studies.
+\newblock \emph{Journal of Machine Learning Research}, 9:\penalty0 235--284,
+  2008.
+
+\bibitem[Krosnick(1991)]{Krosnick1991}
+Jon~A. Krosnick.
+\newblock Response strategies for coping with the cognitive demands of attitude
+  measures in surveys.
+\newblock \emph{Applied Cognitive Psychology}, 5\penalty0 (3):\penalty0
+  213--236, 1991.
+\newblock \doi{10.1002/acp.2350050305}.
+\newblock URL \url{https://onlinelibrary.wiley.com/doi/10.1002/acp.2350050305}.
+
+\bibitem[Kveton et~al.(2014)Kveton, Wen, Ashkan, and
+  Szepesv{\'a}ri]{KvetonEtAl}
+Branislav Kveton, Zheng Wen, Azin Ashkan, and Csaba Szepesv{\'a}ri.
+\newblock Matroid bandits: Fast combinatorial optimization with semi-bandit
+  feedback.
+\newblock In \emph{Advances in Neural Information Processing Systems (NIPS)},
+  volume~27, pages 1448--1456, 2014.
+
+\bibitem[Lauritzen(1996)]{Lauritzen}
+Steffen~L. Lauritzen.
+\newblock \emph{Graphical Models}.
+\newblock Number~17 in Oxford Statistical Science Series. Oxford University
+  Press, Oxford, 1996.
+
+\bibitem[Li et~al.(2022)Li, Krefeld-Schwalb, Wall, Johnson, Toubia, and
+  Bartels]{LiEtAl2022MoreYouAsk}
+Ye~Li, Antonia Krefeld-Schwalb, Daniel~G. Wall, Eric~J. Johnson, Olivier
+  Toubia, and Daniel~M. Bartels.
+\newblock The more you ask, the less you get: When additional questions hurt
+  external validity.
+\newblock \emph{Journal of Marketing Research}, 59\penalty0 (5):\penalty0
+  963--982, 2022.
+\newblock \doi{10.1177/00222437211073581}.
+
+\bibitem[Liu and Wronski(2018)]{LiuWronski2018}
+Mingnan Liu and Laura Wronski.
+\newblock Examining completion rates in web surveys via over 25,000 real-world
+  surveys.
+\newblock \emph{Social Science Computer Review}, 36\penalty0 (1):\penalty0
+  116--124, 2018.
+
+\bibitem[Luce(1959)]{Luce}
+R.~Duncan Luce.
+\newblock \emph{Individual Choice Behavior: A Theoretical Analysis}.
+\newblock John Wiley \& Sons, New York, 1959.
+
+\bibitem[Malnik(2025)]{Malnik2025}
+Jessica Malnik.
+\newblock Survey benchmarks: What's a good survey response rate?
+\newblock Xola Blog, July 2025.
+\newblock URL
+  \url{https://www.xola.com/articles/survey-benchmarks-whats-a-good-survey-response-rate/}.
+\newblock Accessed 2026-03-27.
+
+\bibitem[Maystre and Grossglauser(2015)]{MaystreGrossglauser2015}
+Lucas Maystre and Matthias Grossglauser.
+\newblock Fast and accurate inference of plackett--luce models.
+\newblock In \emph{Advances in Neural Information Processing Systems 28
+  (NeurIPS)}, 2015.
+
+\bibitem[McCullagh(1980)]{McCullagh}
+Peter McCullagh.
+\newblock Regression models for ordinal data.
+\newblock \emph{Journal of the Royal Statistical Society: Series B
+  (Methodological)}, 42\penalty0 (2):\penalty0 109--142, 1980.
+
+\bibitem[Negahban et~al.(2012)Negahban, Oh, and Shah]{NegahbanOhShah2012}
+Sahand Negahban, Sewoong Oh, and Devavrat Shah.
+\newblock Rank centrality: Ranking from pairwise comparisons.
+\newblock In \emph{Advances in Neural Information Processing Systems 25
+  (NeurIPS)}, pages 2661--2669, 2012.
+
+\bibitem[{Netflix}(2017)]{Netflix2017}
+{Netflix}.
+\newblock Goodbye stars, hello thumbs.
+\newblock Newsroom post, April 2017.
+\newblock URL \url{https://about.netflix.com/news/goodbye-stars-hello-thumbs}.
+\newblock Accessed 2025-09-27.
+
+\bibitem[Pansari and Kumar(2017)]{PansariKumar2017}
+Anita Pansari and V.~Kumar.
+\newblock Customer engagement: The construct, antecedents, and consequences.
+\newblock \emph{Journal of the Academy of Marketing Science}, 45\penalty0
+  (3):\penalty0 294--311, 2017.
+\newblock \doi{10.1007/s11747-016-0485-6}.
+
+\bibitem[Peytchev(2009)]{Peytchev2009}
+Andy Peytchev.
+\newblock Survey breakoff.
+\newblock \emph{Public Opinion Quarterly}, 73\penalty0 (1):\penalty0 74--97,
+  2009.
+\newblock \doi{10.1093/poq/nfp014}.
+\newblock URL \url{https://academic.oup.com/poq/article/73/1/74/1854942}.
+
+\bibitem[Plackett(1975)]{Plackett}
+Robin~L. Plackett.
+\newblock The analysis of permutations.
+\newblock \emph{Journal of the Royal Statistical Society: Series C (Applied
+  Statistics)}, 24\penalty0 (2):\penalty0 193--202, 1975.
+
+\bibitem[Pukelsheim(2006)]{Pukelsheim}
+Friedrich Pukelsheim.
+\newblock \emph{Optimal Design of Experiments}.
+\newblock SIAM, Philadelphia, 2006.
+
+\bibitem[{ResearchAndMarkets.com}(2025)]{ResearchAndMarkets2025}
+{ResearchAndMarkets.com}.
+\newblock Subscription box market report 2025: Consumer trends \& forecast
+  2024--2033 --- rising demand for personalization and convenience, growth into
+  diversified product categories.
+\newblock Business Wire press release, September 2025.
+\newblock URL
+  \url{https://www.businesswire.com/news/home/20250912803109/en/Subscription-Box-Market-Report-2025-Consumer-Trends-Forecast-2024-2033---Rising-Demand-for-Personalization-and-Convenience-Growth-into-Diversified-Product-Categories---ResearchAndMarkets.com}.
+
+\bibitem[Revilla et~al.(2014)Revilla, Saris, and
+  Krosnick]{RevillaSarisKrosnick2014}
+Melanie~A. Revilla, Willem~E. Saris, and Jon~A. Krosnick.
+\newblock Choosing the number of categories in agree--disagree scales.
+\newblock \emph{Sociological Methods \& Research}, 43\penalty0 (1):\penalty0
+  73--97, 2014.
+\newblock \doi{10.1177/0049124113509605}.
+\newblock URL \url{https://journals.sagepub.com/doi/10.1177/0049124113509605}.
+
+\bibitem[Rolstad et~al.(2011)Rolstad, Adler, and Ryd{\'e}n]{Rolstad2011}
+Sindre Rolstad, John Adler, and Anna Ryd{\'e}n.
+\newblock Response burden and questionnaire length: Is shorter better? a review
+  and meta-analysis.
+\newblock \emph{Value in Health}, 14\penalty0 (8):\penalty0 1101--1108, 2011.
+\newblock \doi{10.1016/j.jval.2011.06.003}.
+\newblock URL
+  \url{https://www.sciencedirect.com/science/article/pii/S1098301511015245}.
+
+\bibitem[Rue and Held(2005)]{RueHeld}
+H{\aa}vard Rue and Leonhard Held.
+\newblock \emph{Gaussian Markov Random Fields: Theory and Applications}.
+\newblock Chapman and Hall/CRC, Boca Raton, FL, 2005.
+
+\bibitem[Russo and Roy(2018)]{RussoVanRoy}
+Daniel Russo and Benjamin~Van Roy.
+\newblock Learning to optimize via information-directed sampling.
+\newblock \emph{Operations Research}, 66\penalty0 (1):\penalty0 230--252, 2018.
+\newblock \doi{10.1287/opre.2017.1663}.
+
+\bibitem[S{\'a}ndor and Wedel(2001)]{SandorWedel2001}
+Zsolt S{\'a}ndor and Michel Wedel.
+\newblock Designing conjoint choice experiments using managers' prior beliefs.
+\newblock \emph{Journal of Marketing Research}, 38\penalty0 (4):\penalty0
+  430--444, 2001.
+\newblock \doi{10.1509/jmkr.38.4.430}.
+
+\bibitem[Saur{\'e} and Vielma(2019)]{SaureVielma2019}
+Denis Saur{\'e} and Juan~Pablo Vielma.
+\newblock Ellipsoidal methods for adaptive choice-based conjoint analysis.
+\newblock \emph{Operations Research}, 67\penalty0 (2):\penalty0 315--338, 2019.
+\newblock \doi{10.1287/opre.2018.1790}.
+
+\bibitem[Saur{\'e} and Zeevi(2013)]{SaureZeevi2013}
+Denis Saur{\'e} and Assaf Zeevi.
+\newblock Optimal dynamic assortment planning with demand learning.
+\newblock \emph{Manufacturing \& Service Operations Management}, 15\penalty0
+  (3):\penalty0 387--404, 2013.
+
+\bibitem[Seeger(2008)]{Seeger}
+Matthias~W. Seeger.
+\newblock Bayesian inference and optimal design for the sparse linear model.
+\newblock \emph{Journal of Machine Learning Research}, 9:\penalty0 759--813,
+  2008.
+
+\bibitem[Settles(2009)]{Settles2009}
+Burr Settles.
+\newblock Active learning literature survey.
+\newblock Technical Report Computer Sciences Technical Report 1648, University
+  of Wisconsin--Madison, 2009.
+
+\bibitem[Srinivas et~al.(2010)Srinivas, Krause, Kakade, and
+  Seeger]{SrinivasEtAl}
+Niranjan Srinivas, Andreas Krause, Sham~M. Kakade, and Matthias~W. Seeger.
+\newblock Gaussian process optimization in the bandit setting: No regret
+  bounds.
+\newblock In \emph{Proceedings of the 27th International Conference on Machine
+  Learning (ICML)}, 2010.
+
+\bibitem[{Stitch Fix}(2025)]{StitchFixBestFix2025}
+{Stitch Fix}.
+\newblock How to get your best fix yet.
+\newblock Company blog post, August 2025.
+\newblock URL
+  \url{https://www.stitchfix.com/women/blog/inside-stitchfix/how-to-get-your-best-box-yet/}.
+\newblock Accessed 2026-03-27.
+
+\bibitem[{SurveyMonkey}(2020)]{SurveyMonkeyCompletion2020}
+{SurveyMonkey}.
+\newblock Tips for increasing survey completion rates.
+\newblock SurveyMonkey Blog, 2020.
+\newblock URL
+  \url{https://www.surveymonkey.com/learn/survey-best-practices/tips-increasing-survey-completion-rates/}.
+\newblock Accessed 2026-07-31.
+
+\bibitem[Toubia et~al.(2004)Toubia, Hauser, and
+  Simester]{ToubiaHauserSimester2004}
+Olivier Toubia, John~R. Hauser, and Duncan~I. Simester.
+\newblock Polyhedral methods for adaptive choice-based conjoint analysis.
+\newblock \emph{Journal of Marketing Research}, 41\penalty0 (1):\penalty0
+  116--131, 2004.
+
+\bibitem[Toubia et~al.(2007)Toubia, Hauser, and Garcia]{ToubiaHauserGarcia2007}
+Olivier Toubia, John Hauser, and Rosanna Garcia.
+\newblock Probabilistic polyhedral methods for adaptive choice-based conjoint
+  analysis: Theory and application.
+\newblock \emph{Marketing Science}, 26\penalty0 (5):\penalty0 596--610, 2007.
+
+\bibitem[Tourangeau et~al.(2013)Tourangeau, Conrad, and
+  Couper]{TourangeauConradCouper2013}
+Roger Tourangeau, Frederick~G. Conrad, and Mick~P. Couper.
+\newblock \emph{The Science of Web Surveys}.
+\newblock Oxford University Press, New York, 2013.
+\newblock ISBN 978-0-19-974704-7.
+
+\bibitem[Valko et~al.(2014)Valko, Kveton, Koc{\'a}k, and Munos]{ValkoEtAl}
+Michal Valko, Branislav Kveton, Tom{\'a}{\v s} Koc{\'a}k, and R{\'e}mi Munos.
+\newblock Spectral bandits for smooth graph functions.
+\newblock In \emph{Proceedings of the 31st International Conference on Machine
+  Learning (ICML)}, 2014.
+
+\bibitem[van Doorn et~al.(2010)van Doorn, Lemon, Mittal, Nass, Pick, Pirner,
+  and Verhoef]{VanDoornEtAl2010}
+Jenny van Doorn, Katherine~N. Lemon, Vikas Mittal, Stephan Nass, Doreen Pick,
+  Peter Pirner, and Peter~C. Verhoef.
+\newblock Customer engagement behavior: Theoretical foundations and research
+  directions.
+\newblock \emph{Journal of Service Research}, 13\penalty0 (3):\penalty0
+  253--266, 2010.
+\newblock \doi{10.1177/1094670510375599}.
+
+\bibitem[Verhoef et~al.(2010)Verhoef, Reinartz, and
+  Krafft]{VerhoefReinartzKrafft2010}
+Peter~C. Verhoef, Werner~J. Reinartz, and Manfred Krafft.
+\newblock Customer engagement as a new perspective in customer management.
+\newblock \emph{Journal of Service Research}, 13\penalty0 (3):\penalty0
+  247--252, 2010.
+\newblock \doi{10.1177/1094670510375461}.
+
+\bibitem[{YouTube Official Blog}(2009)]{YouTube2009}
+{YouTube Official Blog}.
+\newblock Five stars dominate ratings.
+\newblock Blog post, September 2009.
+\newblock URL
+  \url{https://youtube.googleblog.com/2009/09/5-stars-dominate-ratings.html}.
+\newblock Accessed 2025-09-27.
+
+\bibitem[Yu et~al.(2011)Yu, Goos, and Vandebroek]{YuGoosVandebroek2011}
+Jie Yu, Peter Goos, and Martina Vandebroek.
+\newblock Individually adapted sequential bayesian conjoint-choice designs in
+  the presence of consumer heterogeneity.
+\newblock \emph{International Journal of Research in Marketing}, 28\penalty0
+  (4):\penalty0 378--388, 2011.
+\newblock \doi{10.1016/j.ijresmar.2011.06.002}.
+
+\end{thebibliography}

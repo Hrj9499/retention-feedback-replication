@@ -1,0 +1,8 @@
+scale,responses_per_item,rmse,mae,corr,topk_overlap,reps
+2,1,0.3703,0.3083,0.7871,0.213,50
+2,3,0.3953,0.314,0.8646,0.407,50
+2,5,0.3955,0.3062,0.8901,0.48,50
+5,1,0.2484,0.1791,0.9314,0.46,50
+5,3,0.2276,0.1653,0.9634,0.76,50
+5,5,0.2009,0.1464,0.9748,0.813,50
+# L=60 K=6 reps=50 gibbs_iters=400 burn=100 seed=20260731; coupled shocks; N(0,1) prior; surrogate = information-equivalent Gaussian update.

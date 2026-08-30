@@ -1,0 +1,20 @@
+prior,budget,policy,mean_gap,se,worlds
+AR(1) rho=0.6,600,cutoff_guarded,0.0891,0.0137,100
+AR(1) rho=0.6,600,cutoff_no_damping,0.3001,0.035,100
+AR(1) rho=0.6,600,cutoff_pure,0.361,0.0416,100
+AR(1) rho=0.6,1800,cutoff_guarded,0.0344,0.0073,100
+AR(1) rho=0.6,1800,cutoff_no_damping,0.3001,0.035,100
+AR(1) rho=0.6,1800,cutoff_pure,0.3339,0.0345,100
+AR(1) rho=0.6,6000,cutoff_guarded,0.0079,0.0023,100
+AR(1) rho=0.6,6000,cutoff_no_damping,0.3001,0.035,100
+AR(1) rho=0.6,6000,cutoff_pure,0.3339,0.0345,100
+Independent,600,cutoff_guarded,0.1009,0.0161,100
+Independent,600,cutoff_no_damping,0.4291,0.046,100
+Independent,600,cutoff_pure,0.478,0.0498,100
+Independent,1800,cutoff_guarded,0.0269,0.0065,100
+Independent,1800,cutoff_no_damping,0.4291,0.046,100
+Independent,1800,cutoff_pure,0.4644,0.0497,100
+Independent,6000,cutoff_guarded,0.008,0.0025,100
+Independent,6000,cutoff_no_damping,0.4291,0.046,100
+Independent,6000,cutoff_pure,0.4644,0.0497,100
+# L=60 K=6 warm_start=5 budgets=[600, 1800, 6000] seed=20260406; same world-generation protocol as synthetic_allocation_benchmarks.py.

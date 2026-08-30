@@ -1,0 +1,11 @@
+policy,budget,mean_gap,se,worlds
+guarded_cutoff,600,0.0733,0.0142,100
+guarded_cutoff,1800,0.0224,0.0051,100
+guarded_cutoff,6000,0.0058,0.0019,100
+exact_one_step,600,0.0972,0.0142,100
+exact_one_step,1800,0.0972,0.0142,100
+exact_one_step,6000,0.0972,0.0142,100
+saa_static,600,0.1099,0.0261,30
+saa_static,1800,0.0368,0.0145,30
+saa_static,6000,0.0086,0.0036,30
+# independent prior only; L=60 K=6 warm_start=5 budgets=[600, 1800, 6000] seed=20260406; worlds match the published independent-prior worlds of synthetic_allocation_benchmarks.py; saa_static is a static (non-adaptive) reference.

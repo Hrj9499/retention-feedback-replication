@@ -1,0 +1,14 @@
+policy,channel,budget,mean_gap,se,worlds
+even,full response,600,0.2972,0.0332,100
+even,full response,1800,0.138,0.0174,100
+even,informative missingness,600,0.3364,0.0366,100
+even,informative missingness,1800,0.1929,0.0233,100
+guarded_cutoff,full response,600,0.0783,0.0133,100
+guarded_cutoff,full response,1800,0.0223,0.0063,100
+guarded_cutoff,informative missingness,600,0.13,0.0213,100
+guarded_cutoff,informative missingness,1800,0.0527,0.0116,100
+combined,full response,600,0.0871,0.0145,100
+combined,full response,1800,0.0485,0.0091,100
+combined,informative missingness,600,0.1577,0.0205,100
+combined,informative missingness,1800,0.0967,0.0143,100
+# L=60 K=6 warm_start=5 budgets=[600, 1800] seed=20260406; AR(1) rho=0.6; response probability 0.2 + 0.6*sigmoid(2(|y|-1)); prompts consume budget regardless of arrival; naive updating on arrived answers.

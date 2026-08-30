@@ -1,0 +1,16 @@
+data/
+ml-100k.zip
+quick_outputs/
+__pycache__/
+*.pyc
+.DS_Store
+*.aux
+*.log
+*.out
+*.toc
+*.blg
+*.fls
+*.fdb_latexmk
+*_raw.csv
+!eis_format_validation_raw.csv
+movielens_gap_vs_budget.png

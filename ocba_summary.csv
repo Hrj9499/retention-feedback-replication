@@ -1,0 +1,14 @@
+prior,budget,policy,mean_gap,se,worlds
+AR(1) rho=0.6,600,guarded_cutoff,0.0891,0.0137,100
+AR(1) rho=0.6,1800,guarded_cutoff,0.0344,0.0073,100
+AR(1) rho=0.6,6000,guarded_cutoff,0.0079,0.0023,100
+AR(1) rho=0.6,600,ocba_m,0.116,0.0217,100
+AR(1) rho=0.6,1800,ocba_m,0.0768,0.0201,100
+AR(1) rho=0.6,6000,ocba_m,0.0217,0.0081,100
+Independent,600,guarded_cutoff,0.1009,0.0161,100
+Independent,1800,guarded_cutoff,0.0269,0.0065,100
+Independent,6000,guarded_cutoff,0.008,0.0025,100
+Independent,600,ocba_m,0.2022,0.0291,100
+Independent,1800,ocba_m,0.1118,0.019,100
+Independent,6000,ocba_m,0.0539,0.0131,100
+# L=60 K=6 warm_start=5 budgets=[600, 1800, 6000] seed=20260406; sequential OCBA-m with delta floored at 5% of the cross-sectional sd; world protocol matches synthetic_allocation_benchmarks.py.

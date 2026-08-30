@@ -1,0 +1,5 @@
+distance_to_cutoff,mean_abs_derivative,max_abs_derivative,avg_count
+<=0.10,0.271,0.448,3.2
+"(0.10,0.30]",0.144,0.313,4.3
+"(0.30,0.60]",0.092,0.324,7.4
+>0.60,0.037,0.364,45.1

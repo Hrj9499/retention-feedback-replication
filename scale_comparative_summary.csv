@@ -1,0 +1,13 @@
+panel,N_i,dimension,value,delta
+vary_K_fixed_L60,10,K,2,0.241
+vary_K_fixed_L60,10,K,6,0.218
+vary_K_fixed_L60,10,K,20,0.168
+vary_K_fixed_L60,100,K,2,0.089
+vary_K_fixed_L60,100,K,6,0.07
+vary_K_fixed_L60,100,K,20,0.048
+vary_L_fixed_K6,10,L,20,0.095
+vary_L_fixed_K6,10,L,60,0.218
+vary_L_fixed_K6,10,L,200,0.966
+vary_L_fixed_K6,100,L,20,0.02
+vary_L_fixed_K6,100,L,60,0.07
+vary_L_fixed_K6,100,L,200,0.352
