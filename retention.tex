@@ -1351,7 +1351,15 @@ k_i \;=\; 0.10+0.90\exp\!\big(-\big((\hat w_i-\hat c)/h\big)^2\big),
 \qquad
 h=\max\{\mathrm{med}(g_K),\,0.10\,\mathrm{sd}(\hat{\w}),\,0.08\},
 \]
-where \(g_K\) holds the two order-statistic gaps adjacent to the cutoff, \(\hat w_{(K-1)}-\hat w_{(K)}\) and \(\hat w_{(K)}-\hat w_{(K+1)}\), and \(\mathrm{sd}(\hat{\w})\) is the cross-sectional standard deviation of the current means. The guarded cutoff rule queries \(\arg\max_i k_i/(1+0.10\,N_i)\), where \(N_i\) is the number of answers item \(i\) has received; we call the division the count damping. It keeps the rule from spending the whole budget on the same few borderline items, since each answer an item receives shrinks its score, halving it after ten. In the language of Proposition~\ref{prop:local-marginal}, which prices an answer as cutoff relevance times what is left to learn, the count damping is a shortcut for the second factor; the combined and marginal-value rules estimate that factor from the posterior instead, and their exact scores are in Appendix~\ref{app:refinement-tables}. All constants were chosen once during development and held fixed across every experiment, both priors, and all budgets.
+where \(g_K\) holds the two order-statistic gaps adjacent to the cutoff, \(\hat w_{(K-1)}-\hat w_{(K)}\) and \(\hat w_{(K)}-\hat w_{(K+1)}\), and \(\mathrm{sd}(\hat{\w})\) is the cross-sectional standard deviation of the current means. The guarded cutoff rule queries \(\arg\max_i k_i/(1+0.10\,N_i)\), where \(N_i\) is the number of answers item \(i\) has received; we call the division the count damping. Each answer an item receives shrinks its score, and ten answers cut it
+in half. This stops the rule from spending the whole budget on the same
+few borderline items. It also mirrors the theory.
+Proposition~\ref{prop:local-marginal} prices an answer as cutoff
+relevance times what is left to learn, and an item that has been asked
+often has little left to teach, so the answer count stands in for the
+second factor. The combined and marginal-value rules estimate that
+factor from the posterior; their exact scores are in
+Appendix~\ref{app:refinement-tables}. All constants were chosen once during development and held fixed across every experiment, both priors, and all budgets.
 
 The experiment uses a common warm start of five responses per item and
 \(100\) shared synthetic worlds, each a fresh draw of true item values
