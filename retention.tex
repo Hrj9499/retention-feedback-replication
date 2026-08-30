@@ -1396,9 +1396,12 @@ every budget under both priors.}
 The guarded cutoff rule has the lowest mean gap in all six
 prior-budget settings and the smallest gap in \(65\) to \(90\) percent
 of individual worlds (Appendix Table~\ref{tab:alloc-win-rates}).
-Cutoff relevance carries most of the allocation value. Uncertainty-only
-targeting is weak in both prior structures because it keeps uncertainty
-while ignoring whether that uncertainty can change the next box.
+Cutoff relevance carries most of the allocation value. Uncertainty-only targeting is weak in both prior structures because it
+keeps uncertainty while ignoring whether that uncertainty can change the
+next box. The margin also holds against the closest off-the-shelf
+method. A sequential OCBA-m rule from ranking and selection
+\citep{ChenHeFuLee2008} loses to the guarded rule at every budget under
+both priors (Appendix Table~\ref{tab:ocba}).
 
 Removing the count damping shows why it is there. Without it the rule
 keeps querying the same near-cutoff items, and its gap stays flat at
@@ -1430,16 +1433,6 @@ Proposition~\ref{prop:local-marginal}. It is competitive at the tight
 behind even allocation. Cutoff relevance sets the priority; the
 posterior refinements matter only when near-cutoff items differ in what
 is left to learn.
-
-The closest off-the-shelf method loses as well. OCBA-m is the ranking-
-and-selection procedure for allocating a measurement budget toward
-selecting an optimal subset \citep{ChenHeFuLee2008}. Run sequentially,
-re-splitting the remaining budget across items after each answer, it
-trails the guarded rule at every budget under both priors, \(0.112\)
-against \(0.027\) at \(30L\) under the independent prior
-(Appendix Table~\ref{tab:ocba}). It targets asymptotic
-correct-selection guarantees, a different objective from finite-budget
-next-box value.
 
 \subsection[When to refine cutoff targeting]{When to refine cutoff targeting}\label{subsec:sensitivity-scaling}
 
@@ -2437,10 +2430,11 @@ quoted in Section~\ref{subsec:design-allocation}. It is a sequential OCBA-m rule
 budgets, with target shares recomputed each
 step from current posterior means and the distance to the subset
 boundary floored at five percent of the cross-sectional standard
-deviation. Both rules are run within this benchmark on freshly drawn
-worlds, so the guarded gaps differ slightly from
-Table~\ref{tab:alloc-efficacy}. The guarded cutoff rule has lower mean
-gaps in every row.
+deviation. Both rules are run within this benchmark on freshly drawn worlds, so the
+guarded gaps differ slightly from Table~\ref{tab:alloc-efficacy}. The
+guarded cutoff rule has lower mean gaps in every row. OCBA-m targets
+asymptotic correct-selection guarantees, a different objective from
+finite-budget next-box value.
 
 \begin{table}[h!]
 \centering
