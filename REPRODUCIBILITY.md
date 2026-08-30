@@ -464,7 +464,7 @@ python3 movielens_proxy_benchmarks.py \
   --k 10 \
   --history-share 0.20 \
   --feedback-share 0.50 \
-  --reps 30 \
+  --reps 100 \
   --seed 20260327 \
   --summary-output movielens_experiment_summary.csv \
   --raw-output movielens_experiment_raw.csv \

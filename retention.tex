@@ -128,10 +128,9 @@ five-point format wins; under the steeper loss observed in Netflix's
 in-product test, simple binary prompts win. For targeting, a simple guarded rule performs best in the synthetic
 tests. It asks about products near the shipping boundary and asks less
 about products that already have many answers. Rules that target
-uncertainty alone can lose even to spreading questions evenly. In
-chronological MovieLens ratings, boundary-focused rules beat uniform
-sampling and recover between a sixth and two fifths of the lost shipment
-value.
+uncertainty alone can lose even to spreading questions evenly. In chronological MovieLens ratings, boundary-focused rules beat uniform
+sampling and recover roughly \(15\) to \(40\) percent of the lost
+shipment value.
 \end{abstract}
 
 % =========================================================
@@ -1545,7 +1544,7 @@ allocation idea without building a platform-specific
 recommender. Because finite
 chronological splits can make raw gap paths noisy, Table~\ref{tab:movielens_results}
 reports paired improvements over uniform within the same randomized
-repetition, with standard errors over \(30\) repetitions.
+repetition, with standard errors over \(100\) repetitions.
 
 \begin{table}[h!]
 \centering
@@ -1555,21 +1554,20 @@ repetition, with standard errors over \(30\) repetitions.
 \toprule
 Budget $M$ & \shortstack{Uniform\\gap} & \shortstack{Cutoff-only\\improvement} & \shortstack{Cutoff-only\\win rate} & \shortstack{Cutoff $\times$ uncertainty\\improvement} & \shortstack{Cutoff $\times$ uncertainty\\win rate} \\
 \midrule
-400  & $0.647$ & $0.105\,(0.025)$ & $70.0\%$ & $0.108\,(0.021)$ & $73.3\%$ \\
-1000 & $0.613$ & $0.149\,(0.017)$ & $93.3\%$ & $0.145\,(0.018)$ & $90.0\%$ \\
-2000 & $0.614$ & $0.198\,(0.021)$ & $96.7\%$ & $0.236\,(0.023)$ & $96.7\%$ \\
+400  & $0.635$ & $0.090\,(0.014)$ & $63.0\%$ & $0.097\,(0.014)$ & $68.0\%$ \\
+1000 & $0.630$ & $0.164\,(0.011)$ & $96.0\%$ & $0.160\,(0.012)$ & $92.0\%$ \\
+2000 & $0.637$ & $0.220\,(0.012)$ & $99.0\%$ & $0.250\,(0.013)$ & $97.0\%$ \\
 \bottomrule
 \end{tabular}
-\caption{MovieLens check. Holdout top-\(K\) gaps; improvement and win-rate columns are paired against uniform within the same repetition (30 repetitions).}
+\caption{MovieLens check. Holdout top-\(K\) gaps; improvement and win-rate columns are paired against uniform within the same repetition (100 repetitions).}
 \label{tab:movielens_results}
 \end{table}
 
 The pattern in Table~\ref{tab:movielens_results} mirrors the synthetic
 allocation tests. Both cutoff-aware rules beat uniform at all three
 budgets, and their win rates rise above \(90\%\) at the larger budgets.
-The uncertainty-only benchmark is weaker. At \(M=1000\) and \(M=2000\),
-its mean gaps are \(0.632\) and \(0.683\), compared with uniform gaps of
-\(0.613\) and \(0.614\). Its paired improvements over uniform are
+The uncertainty-only benchmark is weaker. At \(M=1000\) and \(M=2000\), its mean gaps are \(0.662\) and \(0.692\),
+compared with uniform gaps of \(0.630\) and \(0.637\). Its paired improvements over uniform are
 negative at those budgets. This matches the theory's diagnosis. Uncertainty-only sampling chases sparsely measured items
 even when they are not plausible box candidates, while the stronger
 policies keep cutoff relevance in the priority score.
@@ -1580,8 +1578,8 @@ the gap is measured in stars per ten-item box. The oracle box averages
 uniform gap of about \(0.6\) stars per box therefore corresponds to one
 wrong swap that ships an item about \(0.6\) stars below the best
 available alternative, or to a few smaller ones. At the same budget,
-cutoff-aware allocation removes between a sixth and two fifths of
-that loss, with the share growing as the budget rises.
+cutoff-aware allocation removes between roughly \(15\) and \(40\)
+percent of that loss, with the share growing as the budget rises.
 
 Appendix~\ref{app:movielens-splits} repeats the protocol across six
 chronological split configurations, varying the history share that
@@ -2556,10 +2554,21 @@ connection in Section~\ref{subsec:retention} between box composition and
 retention. The unit of analysis is an order, that is, a shipped box.
 Retention is whether the customer reorders. We measure it three ways, at
 the customer's own learned cadence, within thirty days, and with orders
-shortly before a cancellation labeled as churn. The estimation sample covers about \(52{,}000\) orders placed
-between July and November 2025. Estimates come from logistic
-regressions with standardized features, so each is an odds ratio per one
-standard deviation. Only aggregate, relative quantities are reported, and the underlying log
+shortly before a cancellation labeled as churn. The estimation sample covers about \(52{,}000\) orders placed between
+July and November 2025. Estimates come from logistic regressions with
+standardized continuous features, so each is an odds ratio per one
+standard deviation. The features are defined as follows. The cross-order
+repeat rate is the share of the box's items that also appeared in the
+customer's previous four orders, split into recipe and occasional
+components in the product-type analysis. Premium intensity is the
+average credit points per item. Within-box duplication density is the
+number of duplicated items divided by box size, and the duplication
+spike is the change in duplication relative to the customer's trailing
+mean. Tenure enters as the logarithm of one plus the customer's lifetime
+order count. The reported range for the repeat effect spans customer
+segments defined by total credit and box size; higher credit amplifies
+the repeat association and larger boxes mildly soften it. Each retention
+label is estimated in a separate regression. Only aggregate, relative quantities are reported, and the underlying log
 cannot be released. The aggregate results are reported here with the
 service's permission.
 The study is observational. The regressions condition on customer
