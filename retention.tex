@@ -1431,8 +1431,10 @@ behind even allocation. Cutoff relevance sets the priority; the
 posterior refinements matter only when near-cutoff items differ in what
 is left to learn.
 
-The closest off-the-shelf method loses as well. Sequential OCBA-m,
-which re-splits the remaining budget across items after each answer,
+The closest off-the-shelf method loses as well. OCBA-m is the ranking-
+and-selection procedure for allocating a measurement budget toward
+selecting an optimal subset \citep{ChenHeFuLee2008}. Run sequentially,
+re-splitting the remaining budget across items after each answer, it
 trails the guarded rule at every budget under both priors, \(0.112\)
 against \(0.027\) at \(30L\) under the independent prior
 (Appendix Table~\ref{tab:ocba}). It targets asymptotic
@@ -2430,9 +2432,9 @@ Segment-weighted marginal value & $0.114\,(0.011)$ & $93.2\%$ & $0.232\,(0.024)$
 \FloatBarrier
 
 Table~\ref{tab:ocba} reports the ranking-and-selection comparator
-quoted in Section~\ref{subsec:design-allocation}. It is a sequential
-OCBA-m rule for optimal-subset selection, run under the main
-benchmark's setting and budgets, with target shares recomputed each
+quoted in Section~\ref{subsec:design-allocation}. It is a sequential OCBA-m rule for optimal-subset selection
+\citep{ChenHeFuLee2008}, run under the main benchmark's setting and
+budgets, with target shares recomputed each
 step from current posterior means and the distance to the subset
 boundary floored at five percent of the cross-sectional standard
 deviation. Both rules are run within this benchmark on freshly drawn
