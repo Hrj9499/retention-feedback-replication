@@ -1181,9 +1181,10 @@ The first factor asks whether product \(i\)'s box membership is still
 contested. The second asks how much one more answer can still teach under
 the chosen format. In the numerical policies, we estimate the current cutoff \(\hat
 w_{(K)}\) and score each product by a smooth kernel of its distance to
-that cutoff. Repeatedly queried items have their scores damped. This produces the
-cutoff \(\times\) uncertainty rule without requiring a separate
-calibration of the theoretical density \(b_i(\N)\).
+that cutoff. Repeatedly queried items have their scores damped. We call the result the
+guarded cutoff rule. It is the operating policy the rest of the paper
+recommends and tests, and it needs no separate calibration of the
+theoretical density \(b_i(\N)\).
 
 The rule is greedy. It spends each next answer where the current
 marginal value is highest. A small-scale numerical check measures how
@@ -1319,24 +1320,41 @@ counts. The remaining subsections turn to the design questions.
 This is the main allocation experiment. After the platform has a
 small amount of baseline feedback, is it better to spend new responses
 near the shipment cutoff than to spread them evenly or chase uncertainty
-alone? We fix $(L,K)=(60,6)$ and calibrate the
-Gaussian information-equivalent channel to the five-category ordered-probit
-Fisher information. At matched budgets \(N_{\mathrm{tot}}\in\{10L,30L,100L\}\), we compare even allocation, uncertainty-only targeting, a guarded cutoff rule, the combined cutoff \(\times\) uncertainty rule, and an estimated marginal-value rule motivated by Proposition~\ref{prop:local-marginal}. The scoring rules are fully specified. Let \(\hat c=\hat w_{(K)}\) be the current estimated cutoff and let the kernel score of item \(i\) be
+alone? The centerpiece is the guarded cutoff rule of
+Section~\ref{subsec:global-solver}, the operating policy this paper
+recommends. We fix $(L,K)=(60,6)$, calibrate the Gaussian
+information-equivalent channel to the five-category ordered-probit
+Fisher information, and compare five policies at matched budgets
+\(N_{\mathrm{tot}}\in\{10L,30L,100L\}\).
+
+The five policies differ only in how they pick the next item to ask
+about. Even allocation spreads answers uniformly and ignores the
+decision. Uncertainty-only targeting asks about the item whose answer
+would reduce total posterior variance most, wherever that item sits.
+The guarded cutoff rule asks about items near the current shipment
+cutoff and gradually loses interest in items it has already queried
+many times. The combined cutoff \(\times\) uncertainty rule keeps
+the same cutoff focus but replaces the count damping with the estimated
+posterior-variance reduction. The estimated marginal-value rule
+implements the priority formula of
+Proposition~\ref{prop:local-marginal} directly.
+
+\paragraph{Implementation.}
+Let \(\hat c=\hat w_{(K)}\) be the current estimated cutoff and let the kernel score of item \(i\) be
 \[
 k_i \;=\; 0.10+0.90\exp\!\big(-\big((\hat w_i-\hat c)/h\big)^2\big),
 \qquad
 h=\max\{\mathrm{med}(g_K),\,0.10\,\mathrm{sd}(\hat{\w}),\,0.08\},
 \]
-where \(g_K\) holds the two order-statistic gaps adjacent to the cutoff, \(\hat w_{(K-1)}-\hat w_{(K)}\) and \(\hat w_{(K)}-\hat w_{(K+1)}\), and \(\mathrm{sd}(\hat{\w})\) is the cross-sectional standard deviation of the current means. The guarded cutoff rule queries \(\arg\max_i k_i/(1+0.10\,N_i)\). The combined rule multiplies \(k_i\) by \(0.15+0.85\,u_i/\max_j u_j\) and divides by \(1+0.05\,N_i\), where \(u_i=\sum_j A_{ij}(\N)^2/\big(A_{ii}(\N)+1/\kappa_i\big)\) is the total posterior-variance reduction across the catalog from one more answer on item \(i\). All constants were chosen once during development and held fixed across every experiment, both priors, and all budgets. The count damping in the guarded rule is an estimate-free stand-in for the remaining-learnability factor in Proposition~\ref{prop:local-marginal}; the combined and marginal-value rules estimate that factor from the posterior instead.
-
-The estimated marginal-value column implements the priority formula from Proposition~\ref{prop:local-marginal}. Its score for item \(i\) is \(\kappa_i\sum_j k^0_j\,A_{ij}(\N)^2\), where \(k^0_j\) is the kernel score with the floor removed; under an independent prior this reduces to the product form of the proposition. Its finite-budget performance shows how the marginal-
-value priority behaves when repeated as a practical heuristic.
+where \(g_K\) holds the two order-statistic gaps adjacent to the cutoff, \(\hat w_{(K-1)}-\hat w_{(K)}\) and \(\hat w_{(K)}-\hat w_{(K+1)}\), and \(\mathrm{sd}(\hat{\w})\) is the cross-sectional standard deviation of the current means. The guarded cutoff rule queries \(\arg\max_i k_i/(1+0.10\,N_i)\). The combined rule multiplies \(k_i\) by \(0.15+0.85\,u_i/\max_j u_j\) and divides by \(1+0.05\,N_i\), where \(u_i=\sum_j A_{ij}(\N)^2/\big(A_{ii}(\N)+1/\kappa_i\big)\) is the total posterior-variance reduction across the catalog from one more answer on item \(i\). The estimated marginal-value score is \(\kappa_i\sum_j k^0_j\,A_{ij}(\N)^2\), where \(k^0_j\) is the kernel score with the floor removed; under an independent prior this reduces to the product form of the proposition. All constants were chosen once during development and held fixed across every experiment, both priors, and all budgets. The count damping in the guarded rule is an estimate-free stand-in for the remaining-learnability factor in Proposition~\ref{prop:local-marginal}; the combined and marginal-value rules estimate that factor from the posterior instead.
 
 The experiment uses a common warm start of five responses per item and
-\(100\) synthetic worlds. Table~\ref{tab:alloc-efficacy} reports mean
-next-box value gaps with standard errors. The replication package
+\(100\) shared synthetic worlds. Table~\ref{tab:alloc-efficacy}
+reports mean next-box value gaps with standard errors, and
+Figure~\ref{fig:policy-gaps} plots them. The replication package
 reports the corresponding world-level raw outcomes, policy win rates,
-paired improvements relative to even allocation, and within-family calibration references.
+paired improvements relative to even allocation, and within-family
+calibration references.
 
 \begin{table}[h!]
 \centering
@@ -1359,15 +1377,24 @@ Independent ($\bSigma{=}I$) & $100L$  & $0.050\,(0.010)$ & $0.055\,(0.010)$ & $0
 \label{tab:alloc-efficacy}
 \end{table}
 
-The main result is that cutoff relevance carries most of the allocation
-value in these experiments. In both prior structures, uncertainty-only targeting is weak
-relative to the cutoff-focused alternatives because it keeps uncertainty
-while ignoring whether that uncertainty can change the next box. The
-guarded cutoff rule is the best mean policy in all six rows and has
-world-level win rates between \(0.65\) and \(0.90\)
-(Appendix Table~\ref{tab:alloc-win-rates}). Once the platform has a thin layer of baseline information,
-much of the value comes from resolving which products sit near the
-shipment cutoff.
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{policy_gap_comparison.png}
+\caption{Mean next-box value gaps by policy and response budget (log
+scales; lower is better). The guarded cutoff rule attains the lowest
+gap at every budget under both priors. Standard errors are in
+Table~\ref{tab:alloc-efficacy}.}
+\label{fig:policy-gaps}
+\end{figure}
+
+The guarded cutoff rule is the best mean policy in all six prior-budget
+settings and wins in \(65\) to \(90\) percent of individual worlds
+(Appendix Table~\ref{tab:alloc-win-rates}). Cutoff relevance carries
+most of the allocation value. Uncertainty-only targeting is weak in
+both prior structures because it keeps uncertainty while ignoring
+whether that uncertainty can change the next box. Once the platform has
+a thin layer of baseline information, much of the value comes from
+resolving which products sit near the shipment cutoff.
 
 An ablation isolates what the response-count damping contributes
 (replication package). Removing it stalls the rule completely. It keeps querying the same near-cutoff

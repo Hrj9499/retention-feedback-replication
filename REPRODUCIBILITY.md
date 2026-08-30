@@ -105,9 +105,19 @@ python3 mechanism_figure.py --seed 7 --out cutoff_mechanism.png
 
 Deterministic illustration (one synthetic catalog); not an experiment.
 
+## Policy Gap Comparison Figure
+
+Paper location: Section 7.2, Figure of mean gaps by policy and budget.
+
+```
+python3 policy_gap_figure.py --input synthetic_allocation_summary.csv --output policy_gap_comparison.png
+```
+
+Deterministic rendering of the published summary CSV; not an experiment.
+
 ## Guard Ablation for the Cutoff Rule
 
-Paper location: Section 7.2, ablation note on the cutoff-only implementation.
+Paper location: Section 7.2, ablation note on the guarded cutoff implementation.
 
 ```bash
 python3 guard_ablation_benchmark.py \
