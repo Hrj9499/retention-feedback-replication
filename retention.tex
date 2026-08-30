@@ -1466,16 +1466,30 @@ next-box value.
 \subsection[When to refine cutoff targeting]{When to refine cutoff targeting}\label{subsec:sensitivity-scaling}
 
 The main allocation result says that cutoff relevance should receive
-the most weight. This subsection summarizes when the simple rule
-should be refined. Appendix~\ref{app:refinement-tables} reports the
-full tables.
+the most weight. This subsection summarizes when the simple rule should be refined.
+Figure~\ref{fig:refinement-map} maps the central boundary, and
+Appendix~\ref{app:refinement-tables} reports the full tables.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.82\textwidth]{refinement_boundary_map.png}
+\caption{The refinement boundary. Each cell is the mean improvement of
+the combined cutoff \(\times\) uncertainty rule over the guarded
+cutoff rule, by response budget and scenario group, aggregated over the
+regime map of Appendix~\ref{app:refinement-tables}. Blue cells mean
+the uncertainty term helps; red cells mean the guarded rule alone is
+better.}
+\label{fig:refinement-map}
+\end{figure}
 
 Three findings set the boundaries. First, crowding raises the stakes
 but does not change the ranking. As the prior gap around the cutoff
 shrinks from about \(0.40\) to about \(0.06\), even allocation
 leaves larger gaps, and cutoff targeting removes roughly three
-quarters of them in every scenario. Second, adding the uncertainty term helps in a narrow regime. It helps at the tightest
-budgets, and especially when near-cutoff items differ in how much is already known about them.
+quarters of them in every scenario. Second, adding the uncertainty term helps in a narrow regime, the blue
+cells of Figure~\ref{fig:refinement-map}. It helps at the tightest
+budgets, and especially when near-cutoff items differ in how much is
+already known about them.
 In that heterogeneous-information diagnostic, the combined rule roughly
 halves the gap of even allocation and beats undamped proximity in \(52\)
 to \(59\) percent of worlds, with mean paired improvements near \(0.3\)

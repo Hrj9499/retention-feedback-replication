@@ -123,6 +123,17 @@ The dense run shares the world stream of the main benchmark, so its
 10L/30L/100L checkpoints reproduce `synthetic_allocation_summary.csv`
 exactly; the figure script is a deterministic rendering of the dense CSV.
 
+## Refinement Boundary Map Figure
+
+Paper location: Section 7.3, heatmap of the uncertainty-term gain.
+
+```
+python3 regime_map_figure.py --input combined_vs_cutoff_regime_map_summary.csv --output refinement_boundary_map.png
+```
+
+Deterministic aggregation of the published regime-map CSV; the three row
+slices reproduce the slice means of the appendix regime-map table.
+
 ## Guard Ablation for the Cutoff Rule
 
 Paper location: Section 7.2, ablation note on the guarded cutoff implementation.
