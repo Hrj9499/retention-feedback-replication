@@ -1393,9 +1393,11 @@ wrong offers a negligible one-answer gain, so the rule never queries it,
 and the mistake becomes permanent. Practical rules must therefore add
 exploration to the product form. The guarded rule does this with a
 score floor and count damping, which together sweep every contested
-item eventually. In the independent-prior benchmark at experimental scale, the guarded
-rule also beats the best static allocation found by direct optimization
-at every budget (Appendix~\ref{app:greedy-optimal}).
+item eventually. In the independent-prior benchmark at
+experimental scale, the guarded rule also achieves a lower mean gap
+than the best static allocation found by direct optimization at every
+budget, with the largest paired margin at the tight budget
+(Appendix~\ref{app:greedy-optimal}).
 
 The estimated marginal-value benchmark connects the experiments to
 Proposition~\ref{prop:local-marginal}. At the tight \(10L\) budget, it
@@ -1637,9 +1639,10 @@ answers where one more response can still change what ships.
 
 A replication package regenerates every table and figure in this paper
 from a single entry script, covering the synthetic benchmarks, the
-MovieLens experiments, and the calibration steps. The public repository
-link will be added here before posting. The MovieLens~100K data are
-publicly available from GroupLens. The industrial retention log behind
+MovieLens experiments, and the calibration steps. It is available at
+\url{https://github.com/Hrj9499/retention-feedback-replication}. The
+MovieLens~100K data are publicly available from GroupLens. The
+industrial retention log behind
 Appendix~\ref{app:retention-drivers} is proprietary, and only
 aggregate results are reported.
 
@@ -2514,11 +2517,15 @@ the standard knowledge-gradient formula for a normal update. The myopic rule que
 guarded cutoff rule, the exact myopic one-answer rule, and a static SAA
 reference, meaning the best fixed allocation from the
 post-warm-start belief found by multi-start SLSQP.
-Table~\ref{tab:exact-rule} reports the result. The adaptive guarded
-rule beats the static optimum at every budget, so adaptivity has real
-value. The exact myopic one-answer rule stalls at \(0.097\). Myopic one-
-answer gains vanish for items whose means are confidently wrong, so they are
-never queried. This is the diagnosis behind the main-text discussion. Robust
+Table~\ref{tab:exact-rule} reports the comparison on the thirty worlds
+shared by all columns. The guarded rule's mean gap is below the SAA
+reference at every budget. The paired difference is \(-0.053\) with
+standard error \(0.028\) at the tight budget and shrinks toward zero
+as the budget grows, so adaptivity pays most when answers are scarce.
+Over all one hundred worlds, the exact myopic one-answer rule stalls,
+with a flat gap of \(0.097\) while the guarded rule falls from
+\(0.073\) to \(0.006\). Myopic one-answer gains vanish for items
+whose means are confidently wrong, so they are never queried. This is the diagnosis behind the main-text discussion. Robust
 exploration is what separates the practical rules; the product form is
 common to all of them.
 
@@ -2526,16 +2533,16 @@ common to all of them.
 \centering
 \scriptsize
 \setlength{\tabcolsep}{5pt}
-\begin{tabular}{lccc}
+\begin{tabular}{lcccc}
 \toprule
-Budget & Guarded cutoff & \shortstack{Exact myopic\\one-answer} & \shortstack{Best fixed allocation\\(SAA, static)} \\
+Budget & Guarded cutoff & \shortstack{Exact myopic\\one-answer} & \shortstack{Best fixed allocation\\(SLSQP, static)} & \shortstack{Paired guarded\\$-$ best fixed} \\
 \midrule
-$10L$  & $0.073\,(0.014)$ & $0.097\,(0.014)$ & $0.110\,(0.026)$ \\
-$30L$  & $0.022\,(0.005)$ & $0.097\,(0.014)$ & $0.037\,(0.015)$ \\
-$100L$ & $0.006\,(0.002)$ & $0.097\,(0.014)$ & $0.009\,(0.004)$ \\
+$10L$  & $0.057\,(0.018)$ & $0.057\,(0.016)$ & $0.110\,(0.026)$ & $-0.053\,(0.028)$ \\
+$30L$  & $0.025\,(0.009)$ & $0.057\,(0.016)$ & $0.037\,(0.015)$ & $-0.011\,(0.013)$ \\
+$100L$ & $0.006\,(0.003)$ & $0.057\,(0.016)$ & $0.009\,(0.004)$ & $-0.003\,(0.005)$ \\
 \bottomrule
 \end{tabular}
-\caption{Exact myopic one-answer rule and static reference at experimental scale (\(L=60\), \(K=6\), independent prior; 100 worlds for the policies, the first 30 for the SAA reference). Mean gaps with standard errors.}
+\caption{Exact myopic one-answer rule and static reference on a common sample (\(L=60\), \(K=6\), independent prior). Every column uses the same first thirty worlds, the subset on which the SAA reference is computed; the last column is the within-world paired difference between the guarded rule and the best fixed allocation found by multi-start SLSQP. Mean gaps with standard errors.}
 \label{tab:exact-rule}
 \end{table}
 

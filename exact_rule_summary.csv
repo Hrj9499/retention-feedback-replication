@@ -5,6 +5,15 @@ guarded_cutoff,6000,0.0058,0.0019,100
 exact_one_step,600,0.0972,0.0142,100
 exact_one_step,1800,0.0972,0.0142,100
 exact_one_step,6000,0.0972,0.0142,100
+guarded_cutoff_subset,600,0.0568,0.0178,30
+guarded_cutoff_subset,1800,0.0253,0.0088,30
+guarded_cutoff_subset,6000,0.0059,0.0029,30
+exact_one_step_subset,600,0.0573,0.0155,30
+exact_one_step_subset,1800,0.0573,0.0155,30
+exact_one_step_subset,6000,0.0573,0.0155,30
+paired_guarded_minus_saa,600,-0.053,0.0282,30
+paired_guarded_minus_saa,1800,-0.0114,0.013,30
+paired_guarded_minus_saa,6000,-0.0027,0.0048,30
 saa_static,600,0.1099,0.0261,30
 saa_static,1800,0.0368,0.0145,30
 saa_static,6000,0.0086,0.0036,30
