@@ -1344,23 +1344,14 @@ response counts, and the estimated marginal-value rule implements the
 priority formula of Proposition~\ref{prop:local-marginal} directly.
 
 \paragraph{Implementation.}
-The functional forms are deliberately generic, a bell curve for
-closeness to the cutoff, a floor so that no item is ever ruled out, and
-answer counts for diminishing returns; the constants are round
-defaults. Let \(\hat c=\hat w_{(K)}\) be the current estimated cutoff and let the proximity score of item \(i\) be
+The functional forms are deliberately generic and the constants are
+round defaults. Let \(\hat c=\hat w_{(K)}\) be the current estimated cutoff and let the proximity score of item \(i\) be
 \[
 k_i \;=\; 0.10+0.90\exp\!\big(-\big((\hat w_i-\hat c)/h\big)^2\big),
 \qquad
 h=\max\{\mathrm{med}(g_K),\,0.10\,\mathrm{sd}(\hat{\w}),\,0.08\},
 \]
-where \(g_K\) holds the two order-statistic gaps adjacent to the cutoff, \(\hat w_{(K-1)}-\hat w_{(K)}\) and \(\hat w_{(K)}-\hat w_{(K+1)}\), and \(\mathrm{sd}(\hat{\w})\) is the cross-sectional standard deviation of the current means; the exponential is a Gaussian kernel with an adaptive bandwidth \(h\). The guarded cutoff rule queries \(\arg\max_i k_i/(1+0.10\,N_i)\), where \(N_i\) is the number of answers item \(i\) has received. We call the division by \(1+0.10\,N_i\) the count damping. Its job is to keep the rule from spending the whole budget on the same few borderline items. Every answer an item receives shrinks its score a little, so an item that has been queried ten times keeps only half its proximity score and steps aside for its neighbors. All constants were chosen once during development and held fixed across every experiment, both priors, and all budgets. Proposition~\ref{prop:local-marginal} prices an answer as cutoff
-relevance times how much there is still to learn about the item. The
-count damping is a shortcut for that second part. The more often an item
-has been asked about, the less one more answer can teach, so the raw
-answer count already tracks what is left to learn, with nothing to
-estimate. The combined and marginal-value rules estimate the same quantity from
-the posterior instead; their exact scores are in
-Appendix~\ref{app:refinement-tables}.
+where \(g_K\) holds the two order-statistic gaps adjacent to the cutoff, \(\hat w_{(K-1)}-\hat w_{(K)}\) and \(\hat w_{(K)}-\hat w_{(K+1)}\), and \(\mathrm{sd}(\hat{\w})\) is the cross-sectional standard deviation of the current means. The guarded cutoff rule queries \(\arg\max_i k_i/(1+0.10\,N_i)\), where \(N_i\) is the number of answers item \(i\) has received; we call the division the count damping. It keeps the rule from spending the whole budget on the same few borderline items, since each answer an item receives shrinks its score, halving it after ten. In the language of Proposition~\ref{prop:local-marginal}, which prices an answer as cutoff relevance times what is left to learn, the count damping is a shortcut for the second factor; the combined and marginal-value rules estimate that factor from the posterior instead, and their exact scores are in Appendix~\ref{app:refinement-tables}. All constants were chosen once during development and held fixed across every experiment, both priors, and all budgets.
 
 The experiment uses a common warm start of five responses per item and
 \(100\) shared synthetic worlds, each a fresh draw of true item values
@@ -1407,59 +1398,44 @@ prior-budget settings and the smallest gap in \(65\) to \(90\) percent
 of individual worlds (Appendix Table~\ref{tab:alloc-win-rates}).
 Cutoff relevance carries most of the allocation value. Uncertainty-only
 targeting is weak in both prior structures because it keeps uncertainty
-while ignoring whether that uncertainty can change the next box. Once
-the platform has a thin layer of baseline information, much of the
-value comes from resolving which products sit near the shipment cutoff.
+while ignoring whether that uncertainty can change the next box.
 
-Removing the count damping shows why it is there. The undamped rule
-stalls completely (replication package). It keeps querying the same
-near-cutoff items, and its mean gap stays flat at about \(0.30\) to
-\(0.43\) as the budget grows from \(10L\) to \(100L\), while the
-guarded rule falls to \(0.008\). The guarded cutoff rule is therefore
-itself a two-factor rule in the sense of
-Proposition~\ref{prop:local-marginal}. It is cutoff relevance times a
-deliberately robust form of diminishing returns. The comparison across
-columns then tests competing implementations of the second factor, and
-the count damping proves more robust at large budgets than estimating
-that factor from the posterior.
+Removing the count damping shows why it is there. Without it the rule
+keeps querying the same near-cutoff items, and its gap stays flat at
+\(0.30\) to \(0.43\) as the budget grows tenfold, while the guarded
+rule falls to \(0.008\) (replication package). The guarded cutoff rule
+is thus itself a two-factor rule in the sense of
+Proposition~\ref{prop:local-marginal}, cutoff relevance times a robust
+form of diminishing returns, and the columns of
+Table~\ref{tab:alloc-efficacy} compare implementations of the second
+factor. Counts prove sturdier than posterior estimates at large
+budgets.
 
-An exact myopic benchmark, a rule that maximizes the expected gain from
-just the next answer, provides a useful comparison
-(Appendix~\ref{app:greedy-optimal}). Under the independent prior, that
-expected gain has a closed form, a knowledge-gradient-style
-computation, so the myopic one-answer rule can be run exactly, with no proximity
-score and no estimation. The exact rule stalls. Its gap is flat at
-\(0.097\) across all three budgets, while on the same matched worlds
-the guarded rule falls from \(0.073\) to \(0.006\), a seventeenfold
-difference at the largest budget. The failure is short-sightedness. An
-item whose mean is confidently wrong offers a negligible one-answer
-gain, so the rule never queries it, and the mistake becomes permanent.
-Practical rules must therefore add exploration to the product form. The
-guarded rule does this with a score floor and count damping, which
-together sweep every contested item eventually. In the
-independent-prior benchmark at experimental scale, the guarded rule
-also achieves a lower mean gap than the best static allocation found by
-direct optimization at every budget, with the clearest margin at the
-tight budget (Appendix~\ref{app:greedy-optimal}).
+A sharper test runs the myopic ideal exactly. Under the independent
+prior, the expected gain from one full answer has a closed form, so the
+rule that always takes the highest one-answer gain needs no proximity
+score and no estimation. It stalls. Its gap sits at \(0.097\) at every
+budget while the guarded rule falls from \(0.073\) to \(0.006\) on the
+same worlds (Appendix~\ref{app:greedy-optimal}). The reason is
+short-sightedness. An item whose mean is confidently wrong offers a
+negligible one-answer gain, so it is never queried and the mistake
+becomes permanent. Exploration, here the score floor and the count
+damping, is what a practical rule must add. On the same benchmark, the
+guarded rule also achieves a lower mean gap than the best static
+allocation found by direct optimization at every budget.
 
-The estimated marginal-value benchmark connects the experiments to
-Proposition~\ref{prop:local-marginal}. At the tight \(10L\) budget, it
-is close to the guarded cutoff rule and materially better than even or
-uncertainty-only allocation. At larger budgets, repeatedly applying the
-marginal-value score is less robust than the simpler guarded cutoff
-rule and can even fall behind even allocation. This clarifies the
-practical role of the proposition. Cutoff relevance sets the initial
-priority; posterior uncertainty and related-product learning help
-distinguish among near-cutoff products when those differences are
-consequential.
+The estimated marginal-value rule shows the practical role of
+Proposition~\ref{prop:local-marginal}. It is competitive at the tight
+\(10L\) budget and falls behind as the budget grows, at \(100L\) even
+behind even allocation. Cutoff relevance sets the priority; the
+posterior refinements matter only when near-cutoff items differ in what
+is left to learn.
 
-The closest off-the-shelf alternative from ranking and selection also
-fits this protocol. A sequential OCBA-m rule for optimal-subset
-selection, which re-splits the remaining budget across items after
-each answer using the current posterior means, loses to the guarded
-rule at every budget under both priors; at \(30L\) under the
-independent prior the gaps are \(0.112\) against \(0.027\)
-(Appendix Table~\ref{tab:ocba}). OCBA-m targets asymptotic
+The closest off-the-shelf method loses as well. Sequential OCBA-m,
+which re-splits the remaining budget across items after each answer,
+trails the guarded rule at every budget under both priors, \(0.112\)
+against \(0.027\) at \(30L\) under the independent prior
+(Appendix Table~\ref{tab:ocba}). It targets asymptotic
 correct-selection guarantees, a different objective from finite-budget
 next-box value.
 
