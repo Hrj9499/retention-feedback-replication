@@ -1347,7 +1347,12 @@ k_i \;=\; 0.10+0.90\exp\!\big(-\big((\hat w_i-\hat c)/h\big)^2\big),
 \qquad
 h=\max\{\mathrm{med}(g_K),\,0.10\,\mathrm{sd}(\hat{\w}),\,0.08\},
 \]
-where \(g_K\) holds the two order-statistic gaps adjacent to the cutoff, \(\hat w_{(K-1)}-\hat w_{(K)}\) and \(\hat w_{(K)}-\hat w_{(K+1)}\), and \(\mathrm{sd}(\hat{\w})\) is the cross-sectional standard deviation of the current means. The guarded cutoff rule queries \(\arg\max_i k_i/(1+0.10\,N_i)\). The combined rule multiplies \(k_i\) by \(0.15+0.85\,u_i/\max_j u_j\) and divides by \(1+0.05\,N_i\), where \(u_i=\sum_j A_{ij}(\N)^2/\big(A_{ii}(\N)+1/\kappa_i\big)\) is the total posterior-variance reduction across the catalog from one more answer on item \(i\). The estimated marginal-value score is \(\kappa_i\sum_j k^0_j\,A_{ij}(\N)^2\), where \(k^0_j\) is the kernel score with the floor removed; under an independent prior this reduces to the product form of the proposition. All constants were chosen once during development and held fixed across every experiment, both priors, and all budgets. The count damping in the guarded rule is an estimate-free stand-in for the remaining-learnability factor in Proposition~\ref{prop:local-marginal}; the combined and marginal-value rules estimate that factor from the posterior instead.
+where \(g_K\) holds the two order-statistic gaps adjacent to the cutoff, \(\hat w_{(K-1)}-\hat w_{(K)}\) and \(\hat w_{(K)}-\hat w_{(K+1)}\), and \(\mathrm{sd}(\hat{\w})\) is the cross-sectional standard deviation of the current means. The guarded cutoff rule queries \(\arg\max_i k_i/(1+0.10\,N_i)\), where
+\(N_i\) is the number of answers item \(i\) has received. We call the
+division by \(1+0.10\,N_i\) the count damping. Every answer an item
+receives shrinks its score a little, so an item that has been queried
+ten times keeps only half its kernel score and repeatedly queried items
+gradually step aside. The combined rule multiplies \(k_i\) by \(0.15+0.85\,u_i/\max_j u_j\) and divides by \(1+0.05\,N_i\), where \(u_i=\sum_j A_{ij}(\N)^2/\big(A_{ii}(\N)+1/\kappa_i\big)\) is the total posterior-variance reduction across the catalog from one more answer on item \(i\). The estimated marginal-value score is \(\kappa_i\sum_j k^0_j\,A_{ij}(\N)^2\), where \(k^0_j\) is the kernel score with the floor removed; under an independent prior this reduces to the product form of the proposition. All constants were chosen once during development and held fixed across every experiment, both priors, and all budgets. The count damping in the guarded rule is an estimate-free stand-in for the remaining-learnability factor in Proposition~\ref{prop:local-marginal}; the combined and marginal-value rules estimate that factor from the posterior instead.
 
 The experiment uses a common warm start of five responses per item and
 \(100\) shared synthetic worlds. Table~\ref{tab:alloc-efficacy}
@@ -1398,7 +1403,7 @@ whether that uncertainty can change the next box. Once the platform has
 a thin layer of baseline information, much of the value comes from
 resolving which products sit near the shipment cutoff.
 
-An ablation isolates what the response-count damping contributes
+An ablation isolates what the count damping contributes
 (replication package). Removing it stalls the rule completely. It keeps querying the same near-cutoff
 items, and its
 mean gap stays flat at about \(0.30\) to \(0.43\) as the budget grows
@@ -2328,7 +2333,7 @@ can still teach.
 Table~\ref{tab:het-stock} isolates that regime. The warm start
 deliberately gives some borderline products many initial observations
 while nearby rivals get one. Undamped proximity keeps cutoff proximity
-but drops both the uncertainty term and the response-count damping; it
+but drops both the uncertainty term and the count damping; it
 is not the guarded cutoff rule of
 Section~\ref{subsec:design-allocation}. In this state the combined
 rule roughly halves the gap of even allocation and beats undamped
