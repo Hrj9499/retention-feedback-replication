@@ -48,6 +48,11 @@ def parse_args() -> argparse.Namespace:
         default="synthetic_allocation_raw.csv",
         help="CSV path for one row per prior/world/budget/policy.",
     )
+    parser.add_argument(
+        "--budget-multiples",
+        default="10,30,100",
+        help="Comma-separated budget checkpoints in multiples of L; 0 records the warm-start baseline.",
+    )
     return parser.parse_args()
 
 
@@ -208,6 +213,9 @@ def run_world(
         policy_rng = np.random.default_rng(int(rng.integers(0, 2**32 - 1)))
 
         checkpoints: list[float] = []
+        if 0 in budget_set:
+            chosen = np.argpartition(mean, -k)[-k:]
+            checkpoints.append(oracle_sum - float(w_true[chosen].sum()))
         for step in range(1, max_budget + 1):
             item = choose_item(policy, mean, cov, counts, kappas, obs_var, k, policy_rng)
             y = w_true[item] + policy_rng.normal(0.0, math.sqrt(obs_var[item]))
@@ -237,7 +245,7 @@ def scalar_se(values: np.ndarray) -> float:
 
 def main() -> None:
     args = parse_args()
-    budgets = [10 * args.L, 30 * args.L, 100 * args.L]
+    budgets = [int(round(float(m) * args.L)) for m in args.budget_multiples.split(",")]
     gh_x, gh_w = np.polynomial.hermite.hermgauss(31)
     output_path = Path(args.output)
     raw_output_path = Path(args.raw_output)

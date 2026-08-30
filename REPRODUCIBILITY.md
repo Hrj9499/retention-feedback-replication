@@ -110,10 +110,18 @@ Deterministic illustration (one synthetic catalog); not an experiment.
 Paper location: Section 7.2, Figure of mean gaps by policy and budget.
 
 ```
-python3 policy_gap_figure.py --input synthetic_allocation_summary.csv --output policy_gap_comparison.png
+python3 synthetic_allocation_benchmarks.py \
+  --worlds 100 \
+  --seed 20260406 \
+  --budget-multiples "0,2,5,10,15,20,30,40,50,70,100" \
+  --output synthetic_allocation_dense.csv \
+  --raw-output synthetic_allocation_dense_raw.csv
+python3 policy_gap_figure.py --input synthetic_allocation_dense.csv --output policy_gap_comparison.png
 ```
 
-Deterministic rendering of the published summary CSV; not an experiment.
+The dense run shares the world stream of the main benchmark, so its
+10L/30L/100L checkpoints reproduce `synthetic_allocation_summary.csv`
+exactly; the figure script is a deterministic rendering of the dense CSV.
 
 ## Guard Ablation for the Cutoff Rule
 
